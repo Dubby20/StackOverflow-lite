@@ -198,6 +198,29 @@ body {
 	border-radius: 0.28rem;
 }
 
+.form-check {
+	position: relative;
+	display: flex;
+}
+
+.login_bg {
+	background-color: rgb(15, 15, 36);
+}
+
+.login_form_bg {
+	background-color: #eaeaea;
+	margin-top: 56px;
+	border-radius: 12px;
+}
+
+.login_title {
+	text-align: center;
+	margin-bottom: 40px;
+	margin-top: 20px;
+	position: relative;
+	right: 3%;
+}
+
 a {
 	text-decoration: none;
 }
