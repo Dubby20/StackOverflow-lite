@@ -275,3 +275,40 @@ a {
 	position: relative;
 	right: 3%;
 }
+
+/* FEATURED POSTS STYLES */
+
+.posts {
+	display: flex;
+	align-items: center;
+}
+
+.questions {
+	/* border: 1px solid skyblue; */
+	border-radius: 8px;
+	padding: 8px;
+	margin-top: 12px;
+}
+
+span {
+	padding: 0 20px;
+}
+
+hr {
+	margin: 4px 0;
+	border-style: solid;
+	opacity: 0.1;
+}
+
+.btn_delete {
+	justify-content: center;
+	border: none;
+	/* width: 20%; */
+	border-radius: 5px;
+	color: rgb(255, 255, 255);
+	background-color: #f44336;
+	padding: 8px 20px;
+	font-size: 14px;
+	position: relative;
+	left: 26%;
+}
