@@ -264,3 +264,14 @@ a {
 	position: relative;
 	left: 10%;
 }
+
+/* ADDPOST PAGE STYLES*/
+
+.addPost_title {
+	text-align: center;
+	margin-bottom: 40px;
+	margin-top: 20px;
+	color: rgb(19, 17, 17);
+	position: relative;
+	right: 3%;
+}
