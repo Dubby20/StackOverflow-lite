@@ -1,7 +1,7 @@
 export default {
   questions: [{
       question: 'JavaScript for loop to fill object',
-      question_id: 1,
+      questionId: '1',
       user_id: 1,
       created_date: 1534313105828,
       answers: [{
@@ -20,14 +20,14 @@ export default {
           up_vote_count: 15,
           down_vote_count: 7,
           is_preferred: false,
-          created_date: ''
+          created_date: 1534394824525
         }
       ],
     },
 
     {
       question: 'How select2 fullwidth in a hidden div',
-      question_id: 2,
+      questionId: '2',
       user_id: 3,
       created_date: 1534318102535,
       answers: [{
@@ -46,14 +46,14 @@ export default {
           up_vote_count: 14,
           down_vote_count: 9,
           is_preferred: false,
-          created_date: '1534350953899',
+          created_date: 1534350953899,
         }
       ],
     },
 
     {
       question: 'How to append something to an array',
-      question_id: 3,
+      questionId: '3',
       user_id: 9,
       created_date: 1534336260783,
       answers: [{
@@ -63,7 +63,7 @@ export default {
           up_vote_count: 45,
           down_vote_count: 1,
           is_preferred: true,
-          created_date: '1534353053536',
+          created_date: 1534353053536,
         },
         {
           answer_id: 6,
