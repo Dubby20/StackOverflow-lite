@@ -2,7 +2,7 @@
   "name": "stackoverflow-lite",
   "version": "1.0.0",
   "description": "StackOverflow-lite is a platform where people can ask questions and provide answers",
-  "main": "db.js",
+  "main": "server.js",
   "babel": {
     "presets": [
       "env"

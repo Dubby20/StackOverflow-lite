@@ -17,7 +17,11 @@ app.use(urlencoded({
   extended: false
 }));
 
-app.use('/questions', allQuestionsRouter)
+// app.use('/', (req, res) => {
+//   res.send("Hello Express")
+// })
+
+app.use('/api/v1/users', allQuestionsRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -33,9 +33,32 @@ export const question_post = (req, res) => {
     };
     try {
         questions.questions.push(addQuestion)
-        console.log('Post added successfully')
-        res.send(addQuestion)
+        // console.log('Question added successfully')
+
+        return res.send({
+            message: "Question added successfully",
+            data: addQuestion
+        })
     } catch (error) {
-        console.error(error)
+        return res.send(error)
+    }
+}
+
+//POST ANSWER
+export const answer_post = (req, res) => {
+    try {
+        const queId = questions.questions.find(que => que.questionId == req.params.id)
+        const answers = queId.answers;
+        const newAnswer = {
+            answer_id: answers.length + 1,
+            answer: req.body.answer,
+        }
+        answers.push(newAnswer);
+        return res.send({
+            message: "Successfully Created",
+            data: newAnswer,
+        })
+    } catch (e) {
+        return res.send(e)
     }
 }

@@ -5,7 +5,7 @@ export default {
       user_id: 4,
       created_date: 1534313105828,
       answers: [{
-          answer_id: 6,
+          answer_id: 2,
           user_id: 5,
           answer: 'Move the domainData object outside your function loop, then add the values for options',
           up_vote_count: 5,
@@ -14,7 +14,7 @@ export default {
           created_date: 1534359083100
         },
         {
-          answer_id: 5,
+          answer_id: 3,
           user_id: 55,
           answer: 'So create the child array and use that when you create the object.',
           up_vote_count: 15,
@@ -31,7 +31,7 @@ export default {
       user_id: 6,
       created_date: 1534318102535,
       answers: [{
-          answer_id: 7,
+          answer_id: 4,
           user_id: 68,
           answer: 'Div: display none',
           up_vote_count: 4,
@@ -40,7 +40,7 @@ export default {
           created_date: '',
         },
         {
-          answer_id: 8,
+          answer_id: 5,
           user_id: 70,
           answer: 'Width 100%',
           up_vote_count: 14,
@@ -57,7 +57,7 @@ export default {
       user_id: 5,
       created_date: 1534336260783,
       answers: [{
-          answer_id: 25,
+          answer_id: 6,
           user_id: 10,
           answer: 'Use the push() function to append to an array',
           up_vote_count: 45,
@@ -66,7 +66,7 @@ export default {
           created_date: 1534353053536,
         },
         {
-          answer_id: 6,
+          answer_id: 7,
           user_id: 18,
           answer: 'you can use firstArray.concat(secondArray)',
           up_vote_count: 11,
