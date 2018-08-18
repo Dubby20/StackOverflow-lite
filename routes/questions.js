@@ -4,7 +4,7 @@ import {
   answer_post,
   questionId_get,
   question_post
-} from '../controllers/allQuestionsController'
+} from '../controllers/allQuestionsController';
 // import {
 // } from '../controllers/allQuestionsController'
 // import {
@@ -14,14 +14,13 @@ import {
 //   answer_post
 // } from '../controllers/allQuestionsController'
 
-const router = express.Router();
-
+const router = express.Router()
 
 
 // GET ALL QUESTIONS
-router.get('/questions', all_questions_get)
-router.get('/questions/:id', questionId_get)
-router.post('/questions', question_post)
-router.post('/questions/:id/answers', answer_post)
+router.get('/questions', all_questions_get);
+router.get('/questions/:id', questionId_get);
+router.post('/questions', question_post);
+router.post('/questions/:id/answers', answer_post);
 
 export default router;

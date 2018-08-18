@@ -37,7 +37,7 @@ export default {
           up_vote_count: 4,
           down_vote_count: 9,
           is_preferred: true,
-          created_date: '',
+          created_date: ''
         },
         {
           answer_id: 5,
@@ -46,7 +46,7 @@ export default {
           up_vote_count: 14,
           down_vote_count: 9,
           is_preferred: false,
-          created_date: 1534350953899,
+          created_date: 1534350953899
         }
       ],
     },
@@ -63,7 +63,7 @@ export default {
           up_vote_count: 45,
           down_vote_count: 1,
           is_preferred: true,
-          created_date: 1534353053536,
+          created_date: 1534353053536
         },
         {
           answer_id: 7,
@@ -72,7 +72,7 @@ export default {
           up_vote_count: 11,
           down_vote_count: 5,
           is_preferred: false,
-          created_date: 1534355186851,
+          created_date: 1534355186851
         }
       ],
     }
