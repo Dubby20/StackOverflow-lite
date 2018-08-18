@@ -49,6 +49,7 @@
         "one-var": [
             "off"
         ],
-        "eol-last": ["error", "never"]
+        "eol-last": ["error", "never"],
+        "no-unused-expressions": "off"
     }
 }

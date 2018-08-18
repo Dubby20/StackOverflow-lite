@@ -13,8 +13,8 @@
     ]
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-register --recursive ./test/",
-    "mocha": "mocha --compilers js:babel-register",
+    "test": "mocha --require js:babel-register --recursive ./test/--exit",
+    "mocha": "mocha --require js:babel-register",
     "babel-node": "babel-node --presets=env",
     "start": "nodemon --exec npm run babel-node -- server.js",
     "build": "babel src -d dist"
