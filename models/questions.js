@@ -22,7 +22,7 @@ export default {
           is_preferred: false,
           created_date: 1534394824525
         }
-      ],
+      ]
     },
 
     {
@@ -48,7 +48,7 @@ export default {
           is_preferred: false,
           created_date: 1534350953899
         }
-      ],
+      ]
     },
 
     {
@@ -74,9 +74,9 @@ export default {
           is_preferred: false,
           created_date: 1534355186851
         }
-      ],
+      ]
     }
 
 
   ]
-}
+};

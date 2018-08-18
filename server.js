@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 //   res.send("Hello Express")
 // })
 
-app.use('/api/v1/users', allQuestionsRouter)
+app.use('/api/v1/users', allQuestionsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -42,6 +42,6 @@ app.use((err, req, res) => {
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
-})
+});
 
 export default app;

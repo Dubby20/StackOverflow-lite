@@ -14,7 +14,7 @@ export const allQuestionsGet = (req, res) => {
     // });
     if (!questions) return res.status(404).send('No question was found');
     return res.json(questions);
-}
+};
 
 // GET QUESTION OF A SPECIFIC ID
 export const questionIdGet = (req, res) => {
@@ -26,12 +26,12 @@ export const questionIdGet = (req, res) => {
 
 // POST QUESTION
 export const questionPost = (req, res) => {
-    const addQuestion = {
-        questionId: questions.questions.length + 1,
-        question: req.body.question,
-        created_date: Date.now()
-    };
     try {
+        const addQuestion = {
+            questionId: questions.questions.length + 1,
+            question: req.body.question,
+            created_date: Date.now()
+        };
         questions.questions.push(addQuestion);
         // console.log('Question added successfully')
 
@@ -48,11 +48,13 @@ export const questionPost = (req, res) => {
 export const answerPost = (req, res) => {
     try {
         const queId = questions.questions.find(que => que.questionId == req.params.id);
-        const answers = queId.answers;
+        const {
+            answers
+        } = queId;
         const newAnswer = {
             answer_id: answers.length + 1,
             answer: req.body.answer
-        }
+        };
         answers.push(newAnswer);
         return res.send({
             message: 'Answer successfully Created',

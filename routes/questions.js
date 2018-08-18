@@ -16,7 +16,7 @@ import {
 //   answer_post
 // } from '../controllers/allQuestionsController'
 
-const router = express.Router()
+const router = express.Router();
 
 
 // GET ALL QUESTIONS

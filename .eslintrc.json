@@ -11,6 +11,7 @@
         "parser": "babel-eslint"
     },
     "rules": {
+        "import/no-extraneous-dependencies": 0,
         "indent": "off",
         "linebreak-style": [
             "error",
@@ -38,9 +39,9 @@
             "exports": "never",
             "functions": "ignore"
         }],
-        "eqeqeq": "warn",
+        "eqeqeq": "off",
         "no-unused-vars": [
-            "warn"
+            "off"
         ],
         "no-var": [
             "off"
