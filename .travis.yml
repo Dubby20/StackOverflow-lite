@@ -4,3 +4,4 @@ node_js:
 cache:
   directories:
   - "node_modules"
+bundler_args: --retry 5
