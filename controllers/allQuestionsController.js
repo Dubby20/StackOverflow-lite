@@ -79,3 +79,18 @@ export const updatePost = (req, res) => {
         return res.send(error);
     }
 };
+
+export const deletePost = (req, res) => {
+    const deleteData = questions.questions.find(que => que.questionId == req.params.id);
+    if (!deleteData) return res.status(404).send('The question with the given ID was not found');
+    try {
+        const index = questions.questions.indexOf(deleteData);
+        questions.questions.splice(index, 1);
+        res.send({
+            message: 'Question has been deleted',
+            deleteData
+        });
+    } catch (error) {
+        return res.send(error);
+    }
+};

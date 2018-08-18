@@ -25,5 +25,6 @@ router.get('/questions/:id', questionIdGet);
 router.post('/questions', questionPost);
 router.post('/questions/:id/answers', answerPost);
 router.put('/questions/:id', updatePost);
+router.delete('/questions/:id', deletePost);
 
 export default router;
