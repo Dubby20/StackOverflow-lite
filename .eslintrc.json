@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "mocha": true
     },
     "extends": "airbnb",
     "parserOptions": {
@@ -10,10 +11,7 @@
         "parser": "babel-eslint"
     },
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
+        "indent": "off",
         "linebreak-style": [
             "error",
             "unix"
@@ -40,6 +38,16 @@
             "exports": "never",
             "functions": "ignore"
         }],
-        "eqeqeq": "warn"
+        "eqeqeq": "warn",
+        "no-unused-vars": [
+            "warn"
+        ],
+        "no-var": [
+            "off"
+        ],
+        "one-var": [
+            "off"
+        ],
+        "eol-last": ["error", "never"]
     }
 }

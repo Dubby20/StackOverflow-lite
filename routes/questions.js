@@ -1,9 +1,11 @@
 import express from 'express';
 import {
-  all_questions_get,
-  answer_post,
-  questionId_get,
-  question_post
+  allQuestionsGet,
+  questionIdGet,
+  questionPost,
+  answerPost,
+  updatePost,
+  deletePost
 } from '../controllers/allQuestionsController';
 // import {
 // } from '../controllers/allQuestionsController'
@@ -18,9 +20,10 @@ const router = express.Router()
 
 
 // GET ALL QUESTIONS
-router.get('/questions', all_questions_get);
-router.get('/questions/:id', questionId_get);
-router.post('/questions', question_post);
-router.post('/questions/:id/answers', answer_post);
+router.get('/questions', allQuestionsGet);
+router.get('/questions/:id', questionIdGet);
+router.post('/questions', questionPost);
+router.post('/questions/:id/answers', answerPost);
+router.put('/questions/:id', updatePost);
 
 export default router;
