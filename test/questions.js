@@ -25,7 +25,7 @@ describe('/GET questions', () => {
       .get('/api/v1/users/questions')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res).to.be.json();
+        expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         done();
       });
@@ -38,7 +38,7 @@ describe('/GET/questions/:id', () => {
       .get('/api/v1/users/questions/1')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res).to.be.json();
+        expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         done();
       });
@@ -57,7 +57,7 @@ describe('/POST questions', () => {
       .send(que)
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res).to.be.json();
+        expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         expect(res.body).to.have.property('message');
         done();
@@ -78,7 +78,7 @@ describe('/POST answer', () => {
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res).to.be.json();
+        expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         expect(res.body).to.have.property('message');
         done();
@@ -92,7 +92,7 @@ describe('/PUT questions', () => {
       .put('/api/v1/users/questions/1')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res).to.be.json();
+        expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         expect(res.body).to.have.property('message').eql('Question has been updated successfully');
         done();
@@ -106,7 +106,7 @@ describe('/DELETE questions', () => {
       .delete('/api/v1/users/questions/1')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res).to.be.json();
+        expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         expect(res.body).to.have.property('message').eql('Question has been deleted');
         done();

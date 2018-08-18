@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "StackOverflow-lite is a platform where people can ask questions and provide answers",
   "main": "server.js",
+  "engines": {
+    "node": ">= 8.11.3"
+  },
+
   "babel": {
     "presets": [
       "env"
