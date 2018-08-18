@@ -1,7 +1,6 @@
 language: node_js
 node_js: 
 - "stable"
-
-env:
-- NODE_ENV="development"
-- NODE_ENV="production"; SESSION_SECRET=20
+cache:
+  directories:
+  - "node_modules"
