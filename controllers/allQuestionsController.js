@@ -65,7 +65,7 @@ export const answerPost = (req, res) => {
     }
 };
 
-export const updatePost = (req, res) => {
+export const updateQuestion = (req, res) => {
     const updateData = questions.questions.find(que => que.questionId == req.params.id);
     if (!updateData) return res.status(404).send('The question with the given ID was not found');
     try {
@@ -82,7 +82,7 @@ export const updatePost = (req, res) => {
     }
 };
 
-export const deletePost = (req, res) => {
+export const deleteQuestion = (req, res) => {
     try {
         const deleteData = questions.questions.find(que => que.questionId == req.params.id);
         if (!deleteData) return res.status(404).send('The question with the given ID was not found');

@@ -4,8 +4,8 @@ import {
   questionIdGet,
   questionPost,
   answerPost,
-  updatePost,
-  deletePost
+  updateQuestion,
+  deleteQuestion
 } from '../controllers/allQuestionsController';
 // import {
 // } from '../controllers/allQuestionsController'
@@ -24,7 +24,7 @@ router.get('/questions', allQuestionsGet);
 router.get('/questions/:id', questionIdGet);
 router.post('/questions', questionPost);
 router.post('/questions/:id/answers', answerPost);
-router.put('/questions/:id', updatePost);
-router.delete('/questions/:id', deletePost);
+router.put('/questions/:id', updateQuestion);
+router.delete('/questions/:id', deleteQuestion);
 
 export default router;

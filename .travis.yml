@@ -4,6 +4,6 @@ node_js:
 cache:
   directories:
   - "node_modules"
-before_install: npm install -g grunt-cli
-install: npm install
-before_script: grunt build
+env:
+  - NODE_ENV="development"
+  -NODE_ENV="production";SESSION_SECRET="li la"
