@@ -4,14 +4,11 @@
   "description": "StackOverflow-lite is a platform where people can ask questions and provide answers",
   "main": "server.js",
   "engines": {
-    "node": ">= 8.11.3"
+    "node": "8.11.3"
   },
   "babel": {
     "presets": [
       "env"
-    ],
-    "plugins": [
-      "transform-es2015-modules-commonjs"
     ]
   },
   "scripts": {

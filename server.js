@@ -14,15 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-// app.use(json({
-//   type: 'application/json'
-// }));
 
-// app.use('/', (req, res) => {
-//   res.send("Hello Express")
-// })
-
-app.use('/api/v1/users', allQuestionsRouter);
+app.use('/api/v1', allQuestionsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

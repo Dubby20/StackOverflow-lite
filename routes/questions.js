@@ -7,14 +7,6 @@ import {
   updateQuestion,
   deleteQuestion
 } from '../controllers/allQuestionsController';
-// import {
-// } from '../controllers/allQuestionsController'
-// import {
-//   question_post
-// } from '../controllers/allQuestionsController'
-// import {
-//   answer_post
-// } from '../controllers/allQuestionsController'
 
 const router = express.Router();
 
