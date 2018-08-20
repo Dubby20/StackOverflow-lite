@@ -18,9 +18,8 @@
     "mocha": "mocha --compilers js:babel-register",
     "babel-node": "babel-node --presets=env",
     "start:dev": "nodemon --exec npm run babel-node -- server.js",
+    "start": "nodemon --exec npm run babel-node -- server.js",
     "build": "babel ./ -d dist",
-    "start": "node ./dist/server.js",
-    "heroku-postbuild": "npm run build",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "coverage": "nyc reports --reporter=text-lcov | coveralls",
     "test": "nyc --reporter=text mocha --compilers js:babel-register ./test/*.js --exit --reporter spec"
