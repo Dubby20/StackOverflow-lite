@@ -19,7 +19,7 @@ export const questionPost = (req, res) => {
         const addQuestion = {
             questionId: questions.questions.length + 1,
             question: req.body.question,
-            created_date: Date.now()
+            createdDate: Date.now()
         };
         questions.questions.push(addQuestion);
 
@@ -40,7 +40,7 @@ export const answerPost = (req, res) => {
             answers
         } = queId;
         const newAnswer = {
-            answer_id: answers.length + 1,
+            answerId: answers.length + 1,
             answer: req.body.answer
         };
         answers.push(newAnswer);

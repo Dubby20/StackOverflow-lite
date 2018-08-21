@@ -20,7 +20,6 @@
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "coverage": "nyc reports --reporter=text-lcov | coveralls",
     "test": "nyc --reporter=text mocha --compilers js:babel-register ./test/*.js --exit --reporter spec"
-
   },
   "repository": {
     "type": "git",

@@ -4,7 +4,6 @@ import server from '../server';
 
 import questions from '../models/questions';
 
-process.env.NODE_ENV = 'test';
 const {
   expect
 } = chai;
@@ -22,7 +21,7 @@ describe('questions', () => {
 describe('/GET questions', () => {
   it('it should GET all questions', (done) => {
     chai.request(server)
-      .get('/api/v1/users/questions')
+      .get('/api/v1/questions')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -35,7 +34,7 @@ describe('/GET questions', () => {
 describe('/GET/questions/:id', () => {
   it('it should GET a question by the given id', (done) => {
     chai.request(server)
-      .get('/api/v1/users/questions/1')
+      .get('/api/v1/questions/1')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -51,7 +50,7 @@ describe('/POST questions', () => {
       question: 'What is mongoose'
     };
     chai.request(server)
-      .post('/api/v1/users/questions')
+      .post('/api/v1/questions')
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
       .send(que)
@@ -72,7 +71,7 @@ describe('/POST answer', () => {
       question: 'What is mongoose'
     };
     chai.request(server)
-      .post('/api/v1/users/questions/1/answers')
+      .post('/api/v1/questions/1/answers')
       .send(que)
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
@@ -89,7 +88,7 @@ describe('/POST answer', () => {
 describe('/PUT questions', () => {
   it('it should UPDATE a specific question id', (done) => {
     chai.request(server)
-      .put('/api/v1/users/questions/1')
+      .put('/api/v1/questions/1')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -103,7 +102,7 @@ describe('/PUT questions', () => {
 describe('/DELETE questions', () => {
   it('it should delete a specific question id', (done) => {
     chai.request(server)
-      .delete('/api/v1/users/questions/1')
+      .delete('/api/v1/questions/1')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
