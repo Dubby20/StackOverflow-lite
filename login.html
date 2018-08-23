@@ -1,38 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Merienda" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="login_bg">
-  <div class="main">
-  <div class="col-3"></div>
-  <div class="col-6 login_form_bg">
-      <h2 class="login_title">Login</h2>
-      <form action="" method="POST" class="login_form">
-        <div class="center_form">
-        <div class="form-group">
-          <input type="text" placeholder="Username" required name= "username" class="form-control">
+
+<body class="login-body">
+  <header class="top-bar">
+    <div class="top-container">
+      <div class="main">
+        <a href="index.html" class="brand_name">Kodeland</a>
+      </div>
+      <form action="" method="GET" id="search" class="search-bar">
+        <div class="search-div">
+          <input type="text" placeholder="Search.." class="search-input" name="search" maxlength="240">
+          <!-- <button type="submit" class="search-btn">
+                <i class="fa fa-search"></i>
+              </button> -->
         </div>
-        <div class="form-group">
-          <input type="password" placeholder="Password" required name="password" class="form-control">
-        </div>
-        <div class="form-check form-group" >
-          <label class="form-check-label">
-        <input type="checkbox" class="form-check-input"> Remember Me
-      </label>
-        </div>
-        <div class="form-group">
-          <button class="btn-primary">LOGIN</button>
+      </form>
+      <ol class="btn">
+        <li class="btn-link">
+          <a href="login.html" class="login-signup">Login</a>
+          <a href="signUp.html" class="login-signup">Sign Up</a>
+        </li>
+      </ol>
+    </div>
+  </header>
+
+  <div id="login-container">
+    <div class="form animated flipInX">
+      <h2 class="login-title">Login To Your Account</h2>
+      <form class="loginbox" autocomplete="off">
+        <input placeholder="Username" type="text" id="username" class="input-login"></input>
+        <input placeholder="Password" type="password" id="password" class="input-login"></input>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input"> Remember Me
+        </label>
+        <button id="submit" class="login-btn">Login</button>
+      </form>
+      <br>
+      <div class="account">
+        <p>Don't have an account yet?
+          <a href="signUp.html">Register here.</a>
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div>&copy; 2018 StackOverflow-lite</div>
+        <div>Designed by Jacinta</div>
+        <div class="icons">
+          <a href="">
+            <i class="fab fa-twitter fa-2x fa_btn"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-github fa-2x fa_btn"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-linkedin-in fa-2x fa_btn"></i>
+          </a>
         </div>
       </div>
-  <br><br>
-</form>
-  <div>Don't have an account yet?  <a href="signUp.html">Register here.</a></div>
-  <div class="col-3"></div>
-</div>
+    </footer>
 </body>
+
 </html>

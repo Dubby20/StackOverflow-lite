@@ -1,39 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Signup Form</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-</head>
-<body class="signUp_bg">
-    <div class="main ">
-            <div class="col-9">
-              <div class="signUp-form_bg">
-                <h2 class="registration_title">Registration Form</h2>
-                <form action="" method="POST">
-                    <div class="form-group">
-                    <input type="text" placeholder="Fullname" required class="form-control" name="fullname">
-                    </div>
-                    <div class="form-group">
-                <input type="text" placeholder="Username" required class="form-control" name="username">
-                </div>
-                    <div class="form-group">
-                <input type="email" placeholder="Email Address" required class="form-control" name="email">
-                    </div>
-                    <div class="form-group">
-             <input type="password" placeholder="Password" required class="form-control" name="password">
-                    </div>                 
-                    <div class="form-group">
-                        <button type="submit" class="btn-primary" value="submit">Create Account</button>
-                    </div>
-                </form>
-              </div>
-          </div>
-            <div class="col-3"></div>
-        </div>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Merienda" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="login-body">
+    <header class="top-bar">
+        <div class="top-container">
+            <div class="main">
+                <a href="index.html" class="brand_name">Kodeland</a>
+            </div>
+            <form action="" method="GET" id="search" class="search-bar">
+                <div class="search-div">
+                    <input type="text" placeholder="Search.." class="search-input" name="search" maxlength="240">
+                    <!-- <button type="submit" class="search-btn">
+                <i class="fa fa-search"></i>
+              </button> -->
+                </div>
+            </form>
+            <ol class="btn">
+                <li class="btn-link">
+                    <a href="login.html" class="login-signup">Login</a>
+                    <a href="signUp.html" class="login-signup">Sign Up</a>
+                </li>
+            </ol>
+        </div>
+    </header>
+
+    <div id="signup-container">
+        <div class="form animated flipInX">
+            <h2 class="login-title">Create Your Account</h2>
+                <form class="loginbox" autocomplete="off" action="" method="POST">
+                    <div class="">
+                    <input type="text" placeholder="Fullname" required class="input-login" name="fullname">
+                    </div>
+                    <div class="">
+                <input type="text" placeholder="Username" required class="input-login" name="username">
+                </div>
+                    <div class="">
+                <input type="email" placeholder="Email Address" required class="input-login" name="email">
+                    </div>
+                    <div class="">
+             <input type="password" placeholder="Password" required class="input-login" name="password">
+                    </div>                 
+                
+                <button id="submit" class="login-btn">Sign Up</button>
+            </form>
+            <br>
+            <div class="account">
+                <p>Already have an account yet?
+                    <a href="login.html">Login.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div>&copy; 2018 StackOverflow-lite</div>
+            <div>Designed by Jacinta</div>
+            <div class="icons">
+                <a href="">
+                    <i class="fab fa-twitter fa-2x fa_btn"></i>
+                </a>
+                <a href="">
+                    <i class="fab fa-github fa-2x fa_btn"></i>
+                </a>
+                <a href="">
+                    <i class="fab fa-linkedin-in fa-2x fa_btn"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>

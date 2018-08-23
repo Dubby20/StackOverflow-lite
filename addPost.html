@@ -12,84 +12,70 @@
 </head>
 
 <body>
-  <div class="menu-container">
-    <div class="menu">
-      <div class="left_menu">
-        <div>
-          <a href="index.html" class="links brand_name">Kodeland</a>
-        </div>
-        <div class="add_post hover">
-          <a href="addPost.html" class="links">Add Posts</a>
-        </div>
-        <div class="featured_post hover">
-          <a href="featuredPost.html" class="links">Featured Posts</a>
-        </div>
-        <div class="profile hover">
-          <a href="profile.html" class="links">Profile</a>
-        </div>
-      </div>
-      <div class="left-menu-mobile">
-        <button class="btn">&#9776;</button>
-      </div>
-      <div class="center_menu">
-        <form action="" method="POST">
-          <div class="search_input_button">
-            <input type="text" placeholder="Search..." class="search_box">
-            <button class="btn search_button">Search Posts</button>
-          </div>
-        </form>
-      </div>
-      <div class="right_menu">
-        <div>
-          <a href="#" class="btn logout">LOG OUT</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="main">
-    <div class="row">
-      <div class="col-0"></div>
-      <div class="col-10">
-        <h2 class="addPost_title"> CREATE POST</h2>
-        <form action="" method="POST">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Post Title" name="title" required>
-          </div>
-          <div class="form-group">
-            <label for="exampleTextarea"></label>
-            <textarea class="form-control" placeholder="Post Content" name="content" id="exampleTextarea" rows="5"></textarea>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="tags" placeholder="#Tags">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Post Link (https://imgur.com/)" name="imagelink">
-          </div>
-          <div class="form-group">
-            <button class="btn-primary" type="submit"> CREATE POST</button>
-          </div>
-        </form>
-      </div>
-      <div class="col-2"></div>
-    </div>
-  </div>
-  <!-- Page footer -->
-  <footer>
-    <div class="footer-container">
-      <div>&copy; 2018 StackOverflow-lite</div>
-      <div>Designed by Jacinta</div>
-      <div>
-        <a href="">
-          <i class="fab fa-facebook fa-2x fa_btn"></i>
-        </a>
-        <a href="">
-          <i class="fab fa-github fa-2x fa_btn"></i>
-        </a>
-      </div>
-    </div>
-  </footer>
 
-</body>
-<!-- <script src="addPost.js"></script> -->
+  <body class="login-body">
+    <header class="top-bar">
+      <div class="top-container">
+        <div class="main">
+          <a href="index.html" class="brand_name">Kodeland</a>
+        </div>
+        <form action="" method="GET" id="search" class="search-bar">
+          <div class="search-div">
+            <input type="text" placeholder="Search.." class="search-input" name="search" maxlength="240">
+            <!-- <button type="submit" class="search-btn">
+                  <i class="fa fa-search"></i>
+                </button> -->
+          </div>
+        </form>
+        <ol class="btn">
+          <li class="btn-link">
+            <a href="login.html" class="login-signup">Login</a>
+            <a href="signUp.html" class="login-signup">Sign Up</a>
+          </li>
+        </ol>
+      </div>
+    </header>
+
+    <div id="addQuestion-container">
+      <div class="form animated flipInX">
+        <h2 class="addPost_title"> CREATE POST</h2>
+        <form class="loginbox" autocomplete="off" action="" method="POST">
+          <div class="">
+            <input type="text" placeholder="Post Title" required class="input-login" name="fullname">
+          </div>
+          <div class="">
+            <input type="text" placeholder="Post Content" required class="input-login" name="username">
+          </div>
+          <div class="">
+            <input type="email" placeholder="#Tags" required class="input-login" name="email">
+          </div>
+          <div class="">
+            <input type="password" placeholder="Post Link (https://imgur.com/)" required class="input-login" name="password">
+          </div>
+
+          <button id="submit" class="login-btn">Create Post</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div>&copy; 2018 StackOverflow-lite</div>
+        <div>Designed by Jacinta</div>
+        <div class="icons">
+          <a href="">
+            <i class="fab fa-twitter fa-2x fa_btn"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-github fa-2x fa_btn"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-linkedin-in fa-2x fa_btn"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <!-- <script src="addPost.js"></script> -->
 
 </html>
