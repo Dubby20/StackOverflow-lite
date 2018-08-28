@@ -1,19 +1,16 @@
 import questions from '../models/questions';
 
-// GET ALL QUESTIONS
 export const allQuestionsGet = (req, res) => {
     if (!questions) return res.status(404).send('No question was found');
     return res.json(questions);
 };
 
-// GET QUESTION OF A SPECIFIC ID
 export const questionIdGet = (req, res) => {
-    const data = questions.questions.find(que => que.questionId == req.params.id);
+    const data = questions.questions.find(que => que.questionId === parseInt(req.params.id));
     if (!data) return res.status(404).send('The question with the given ID was not found');
     return res.json(data);
 };
 
-// POST QUESTION
 export const questionPost = (req, res) => {
     try {
         const addQuestion = {
@@ -32,10 +29,9 @@ export const questionPost = (req, res) => {
     }
 };
 
-// POST ANSWER
 export const answerPost = (req, res) => {
     try {
-        const queId = questions.questions.find(que => que.questionId == req.params.id);
+        const queId = questions.questions.find(que => que.questionId === parseInt(req.params.id));
         const {
             answers
         } = queId;
@@ -54,7 +50,7 @@ export const answerPost = (req, res) => {
 };
 
 export const updateQuestion = (req, res) => {
-    const updateData = questions.questions.find(que => que.questionId == req.params.id);
+    const updateData = questions.questions.find(que => que.questionId === parseInt(req.params.id));
     if (!updateData) return res.status(404).send('The question with the given ID was not found');
     try {
         const id = questions.questions.indexOf(updateData);
@@ -71,7 +67,7 @@ export const updateQuestion = (req, res) => {
 
 export const deleteQuestion = (req, res) => {
     try {
-        const deleteData = questions.questions.find(que => que.questionId == req.params.id);
+        const deleteData = questions.questions.find(que => que.questionId === parseInt(req.params.id));
         if (!deleteData) return res.status(404).send('The question with the given ID was not found');
         const index = questions.questions.indexOf(deleteData);
         questions.questions.splice(index, 1);
