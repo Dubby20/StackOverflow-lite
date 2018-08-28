@@ -7,7 +7,7 @@
 StackOverflow-lite is a platform where people can ask questions and provide answers.
 
 ## Description
-If a user has some questions about a bug or tool he/she is using, he/she can post it on [Kodeland](https://dubby20.github.io/StackOverflow-lite/)and get answers or feedback from other others who visits the platform.
+If a user has some questions about a bug or tool he/she is using, he/she can post it on [(Kodeland)](https://dubby20.github.io/StackOverflow-lite/)and get answers or feedback from other others who visits the platform.
 
 ## Features
 + Users can create account.
@@ -43,9 +43,9 @@ run npm install && npm run start
 ### Dependencies
 
 List of libraries, tools, etc used for this project
-[Nodejs](https://nodejs.org/en/)
-[Express](https://expressjs.com/)
-[Postgresql](https://www.postgresql.org/)
+* [Nodejs](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
+* [Postgresql](https://www.postgresql.org/)
 
 ### Getting Started
 

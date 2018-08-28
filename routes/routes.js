@@ -8,7 +8,8 @@ import {
   deleteQuestion
 } from '../controllers/allQuestionsController';
 import {
-  signup
+  signup,
+  signin
 } from '../auth/users';
 
 const router = express.Router();
@@ -21,6 +22,8 @@ router.put('/questions/:id', updateQuestion);
 router.delete('/questions/:id', deleteQuestion);
 
 router.post('/auth/signup', signup);
+router.post('/auth/signin', signin);
+
 
 
 export default router;
