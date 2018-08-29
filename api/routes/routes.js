@@ -1,11 +1,4 @@
 import express from 'express';
-import {
-  allQuestionsGet,
-  questionIdGet,
-  answerPost,
-  updateQuestion,
-  deleteQuestion
-} from '../controllers/allQuestionsController';
 
 import {
   signup,
@@ -15,7 +8,8 @@ import {
   addQuestion,
   allQuestions,
   getQuestionId,
-  deleteQuestionId
+  deleteQuestionId,
+  postAnswer
 } from '../controllers/index';
 
 import {
@@ -24,17 +18,23 @@ import {
   verifyToken
 } from '../middleware/validateUsers';
 
+import {
+  validateQuestion,
+  checkQuestion
+} from '../middleware/validateQuestion';
+import validateAnswer from '../middleware/validateAnswer';
+
 const router = express.Router();
 
-router.post('/questions/:id/answers', answerPost);
-router.put('/questions/:id', updateQuestion);
+// router.put('/questions/:id', updateQuestion);
 
 router.post('/auth/signup', validateSignup, signup);
 router.post('/auth/signin', validateSignin, signin);
-router.post('/questions', verifyToken, addQuestion);
+router.post('/questions', verifyToken, validateQuestion, addQuestion);
 router.get('/questions', allQuestions);
 router.get('/questions/:id', getQuestionId);
 router.delete('/questions/:id', verifyToken, deleteQuestionId);
+router.post('/questions/:id/answers', verifyToken, checkQuestion, validateAnswer, postAnswer);
 
 
 export default router;
