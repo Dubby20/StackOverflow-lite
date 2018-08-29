@@ -9,7 +9,8 @@ import {
   allQuestions,
   getQuestionId,
   deleteQuestionId,
-  postAnswer
+  postAnswer,
+  preferAnswer
 } from '../controllers/index';
 
 import {
@@ -35,6 +36,7 @@ router.get('/questions', allQuestions);
 router.get('/questions/:id', getQuestionId);
 router.delete('/questions/:id', verifyToken, deleteQuestionId);
 router.post('/questions/:id/answers', verifyToken, checkQuestion, validateAnswer, postAnswer);
+router.put('/questions/:id/answers/:id', verifyToken, preferAnswer);
 
 
 export default router;
