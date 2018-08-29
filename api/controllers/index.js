@@ -82,7 +82,7 @@ export const deleteQuestionId = (request, response) => {
         });
       }
       if (request.decoded.id === result.rows[0].user_id) {
-        pool.query('DELETE FROM questions where id = $1', [request.params.id], (err, result) => {
+        pool.query('DELETE FROM questions WHERE questions.id = $1', [request.params.id], (err, result) => {
           if (result) {
             response.status(200).json({
               message: 'Question deleted successfully'
@@ -115,6 +115,20 @@ export const postAnswer = (request, response) => {
     }).catch((error) => {
       response.status(500).json({
         message: `error ${error}`
+      });
+    });
+};
+
+export const preferAnswer = (request, response) => {
+  pool.query('UPDATE answers SET preferred_answer= true WHERE answers.id = $1', [request.params.id])
+    .then((data) => {
+      return response.status(200).json({
+        data: data.rows[0],
+        message: 'Preferred answer successfully'
+      });
+    }).catch((error) => {
+      response.status(500).json({
+        message: `${error}`
       });
     });
 };
