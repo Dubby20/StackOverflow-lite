@@ -1,4 +1,6 @@
-export const validateSignup = (req, res) => {
+import jwt from 'jsonwebtoken';
+
+export const validateSignup = (req, res, next) => {
   const {
     email,
     fullname,
@@ -10,11 +12,10 @@ export const validateSignup = (req, res) => {
   let responseObject;
 
   if (!email || email.search('.com') === -1 || email.search('@') === -1) {
-    responseCode = 400;
-    responseObject = {
+    return res.status(400).send({
       status: 'Error',
-      message: 'Please enter an accurate email'
-    };
+      message: 'Please enter accurate email'
+    });
   }
 
   if (!fullname || fullname.trim().length < 1) {
@@ -45,11 +46,11 @@ export const validateSignup = (req, res) => {
       message: 'Password must be at least 6 characters long'
     });
   }
-  return res.status(responseCode).json(responseObject);
+  next();
 };
 
 
-export const validateSignin = (req, res) => {
+export const validateSignin = (req, res, next) => {
   const {
     email,
     password
@@ -74,18 +75,33 @@ export const validateSignin = (req, res) => {
       message: 'Password must be at least 6 characters long'
     });
   }
-}
+  next();
+};
 
 export const verifyToken = (req, res, next) => {
-  const bearerHeader = req.headers.authorization;
-  if (typeof bearerHeader !== 'undefined') {
-    const bearer = bearerHeader.split(' ');
-    const bearerToken = bearer[1];
-    req.token = bearerToken;
-    next();
+  // const bearerHeader = req.headers.authorization;
+  // if (typeof bearerHeader !== 'undefined') {
+  //   const bearer = bearerHeader.split(' ');
+  //   const bearerToken = bearer[1];
+  //   req.token = bearerToken;
+  // }
+  const {
+    token
+  } = req.headers;
+  if (token) {
+    jwt.verify(token, 'secret', (err, decoded) => {
+      if (err) {
+        return res.sendStatus(401).json({
+          message: 'Authentication failed'
+        });
+      }
+      req.decoded = decoded;
+      console.log(req.decoded);
+      next();
+    });
   } else {
-    res.statusCode(401).json({
-      message: 'Forbidden'
+    res.status(401).json({
+      message: 'Unauthorized'
     });
   }
-}
+};

@@ -1,11 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import pool from '../config/database';
-import {
-  validateSignup,
-  validateSignin
 
-} from '../middleware/validateUsers'
 
 export const signup = (req, res) => {
   try {
@@ -15,21 +11,38 @@ export const signup = (req, res) => {
       }
       pool.query(
         'INSERT INTO users (email, fullname, username, password) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.email, req.body.fullname, req.body.username, hash],
-        (err, result) => {
-          if (err) {
-            res.status(400).json({
+        (error, result) => {
+          if (error) {
+            return res.status(400).json({
               status: res.statusCode,
-              message: err.detail
+              message: error.detail
             });
-          } else {
-            const data = result.rows;
+          }
+          const {
+            email,
+            id
+          } = result.rows[0];
+          if (result) {
+            const token = jwt.sign({
+                id,
+                email
+              },
+              'secret', {
+                expiresIn: '24h'
+              });
             res.status(201).json({
-              data,
+              token,
               status: 'Success',
               message: 'User created successfully'
             });
+          } else {
+            return res.status(404).json({
+              status: 'Error',
+              message: 'Invalid details'
+            });
           }
         }
+
       );
     });
   } catch (err) {
@@ -42,8 +55,10 @@ export const signup = (req, res) => {
 
 
 export const signin = (req, res) => {
+  console.log('HI');
   try {
     pool.query('SELECT * FROM users WHERE email = $1', [req.body.email], (err, result) => {
+      console.log(result);
       if (err) {
         return res.status(400).json({
           status: 'Error',
