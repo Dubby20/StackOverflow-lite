@@ -8,9 +8,6 @@ export const validateSignup = (req, res, next) => {
     password
   } = req.body;
 
-  let responseCode;
-  let responseObject;
-
   if (!email || email.search('.com') === -1 || email.search('@') === -1) {
     return res.status(400).send({
       status: 'Error',
@@ -79,12 +76,6 @@ export const validateSignin = (req, res, next) => {
 };
 
 export const verifyToken = (req, res, next) => {
-  // const bearerHeader = req.headers.authorization;
-  // if (typeof bearerHeader !== 'undefined') {
-  //   const bearer = bearerHeader.split(' ');
-  //   const bearerToken = bearer[1];
-  //   req.token = bearerToken;
-  // }
   const {
     token
   } = req.headers;
