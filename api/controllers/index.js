@@ -47,4 +47,29 @@ export const addQuestion = (request, response) => {
       message: err.err[0].message
     });
   }
+};
+
+export const getQuestionId = (request, response) => {
+  try {
+    pool.query('SELECT * FROM questions WHERE id = $1', [request.params.id], (err, result) => {
+      if (err) {
+        response.status(404).json({
+          status: 'Error',
+          message: err
+        });
+      } else {
+        const data = result.rows;
+        console.log(result.rows);
+        return response.status(200).json({
+          data,
+          message: 'Successful'
+        });
+      }
+    });
+  } catch (err) {
+    response.status(400).json({
+      status: 'Error',
+      message: err.err[0].message
+    });
+  }
 }
