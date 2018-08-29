@@ -55,19 +55,14 @@ export const signup = (req, res) => {
 
 
 export const signin = (req, res) => {
-  console.log('HI');
   try {
     pool.query('SELECT * FROM users WHERE email = $1', [req.body.email], (err, result) => {
-      console.log(result);
       if (err) {
         return res.status(400).json({
           status: 'Error',
           message: err.detail
         });
       }
-      // if (result.rows[0]) {
-      //   data
-      //  } else
       const {
         email,
         id,
