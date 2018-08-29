@@ -14,7 +14,8 @@ import {
 import {
   addQuestion,
   allQuestions,
-  getQuestionId
+  getQuestionId,
+  deleteQuestionId
 } from '../controllers/index';
 
 import {
@@ -27,13 +28,13 @@ const router = express.Router();
 
 router.post('/questions/:id/answers', answerPost);
 router.put('/questions/:id', updateQuestion);
-router.delete('/questions/:id', deleteQuestion);
 
 router.post('/auth/signup', validateSignup, signup);
 router.post('/auth/signin', validateSignin, signin);
 router.post('/questions', verifyToken, addQuestion);
 router.get('/questions', allQuestions);
 router.get('/questions/:id', getQuestionId);
+router.delete('/questions/:id', verifyToken, deleteQuestionId);
 
 
 export default router;

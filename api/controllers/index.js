@@ -59,7 +59,6 @@ export const getQuestionId = (request, response) => {
         });
       } else {
         const data = result.rows;
-        console.log(result.rows);
         return response.status(200).json({
           data,
           message: 'Successful'
@@ -72,4 +71,35 @@ export const getQuestionId = (request, response) => {
       message: err.err[0].message
     });
   }
-}
+};
+
+export const deleteQuestionId = (request, response) => {
+  console.log(request.decoded);
+  try {
+    pool.query('SELECT * FROM questions WHERE id = $1', [request.params.id], (err, result) => {
+      if (err) {
+        response.status(400).json({
+          message: err
+        })
+      }
+      if (request.decoded.id === result.rows[0].user_id) {
+        pool.query('DELETE FROM questions where id = $1', [request.params.id], (err, result) => {
+          if (result) {
+            response.status(200).json({
+              message: 'Question deleted successfully'
+            });
+          }
+        });
+      } else {
+        return response.status(401).json({
+          message: 'Unauthorized'
+        });
+      }
+    });
+  } catch (err) {
+    response.status(400).json({
+      status: 'Error',
+      message: err.message
+    });
+  }
+};
