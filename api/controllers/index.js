@@ -22,7 +22,7 @@ export const allQuestions = (request, response) => {
       message: err.err[0].message
     });
   }
-}
+};
 
 export const addQuestion = (request, response) => {
   try {
@@ -40,7 +40,7 @@ export const addQuestion = (request, response) => {
           message: 'Post created successfully'
         });
       }
-    })
+    });
   } catch (err) {
     response.status(400).json({
       status: 'Error',
@@ -74,13 +74,12 @@ export const getQuestionId = (request, response) => {
 };
 
 export const deleteQuestionId = (request, response) => {
-  console.log(request.decoded);
   try {
     pool.query('SELECT * FROM questions WHERE id = $1', [request.params.id], (err, result) => {
       if (err) {
         response.status(400).json({
           message: err
-        })
+        });
       }
       if (request.decoded.id === result.rows[0].user_id) {
         pool.query('DELETE FROM questions where id = $1', [request.params.id], (err, result) => {
@@ -102,4 +101,20 @@ export const deleteQuestionId = (request, response) => {
       message: err.message
     });
   }
+};
+
+export const postAnswer = (request, response) => {
+  pool.query('INSERT INTO answers (user_id, answer, question_id) VALUES ($1, $2, $3) RETURNING *',
+      [request.decoded.id, request.body.answer, request.params.id])
+    .then((data) => {
+      return response.status(200).json({
+        data: data.rows[0],
+        message: 'Answer posted successfully'
+      });
+
+    }).catch((error) => {
+      response.status(500).json({
+        message: `error ${error}`
+      });
+    });
 };
