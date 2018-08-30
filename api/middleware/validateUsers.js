@@ -1,73 +1,71 @@
 import jwt from 'jsonwebtoken';
 
-export const validateSignup = (req, res, next) => {
+export const validateSignup = (request, response, next) => {
   const {
     email,
-    fullname,
     username,
     password
-  } = req.body;
+  } = request.body;
 
   if (!email || email.search('.com') === -1 || email.search('@') === -1) {
-    return res.status(400).send({
+    return response.status(400).send({
       status: 'Error',
       message: 'Please enter accurate email'
     });
   }
 
-  if (!fullname || fullname.trim().length < 1) {
-    return res.status(400).send({
-      status: 'Error',
-      message: 'Please enter your fullname'
-    });
-  }
-
-
   if (!username || username.trim().length < 1) {
-    return res.status(400).json({
+    return response.status(400).json({
       status: 'Error',
       message: 'Please enter your email'
     });
   }
 
   if (!password || password.trim().length < 1) {
-    return res.status(400).json({
+    return response.status(400).json({
       status: 'Error',
       message: 'Please enter your email'
     });
   }
 
   if (!password || password.trim().length < 6) {
-    return res.status(400).json({
+    return response.status(400).json({
       status: 'Error',
       message: 'Password must be at least 6 characters long'
+    });
+  }
+
+  if (!email || !password) {
+    return response.status(400).json({
+      status: 'Error',
+      message: 'Email or password is missing'
     });
   }
   next();
 };
 
 
-export const validateSignin = (req, res, next) => {
+export const validateSignin = (request, response, next) => {
   const {
     email,
     password
-  } = req.body;
+  } = request.body;
 
   if (!email || email.search('.com') === -1 || email.search('@') === -1) {
-    return res.status(400).send({
+    return response.status(400).send({
       status: 'Error',
       message: 'Please enter an accurate email'
     });
   }
   if (!password || password.trim().length < 1) {
-    return res.status(400).json({
+    return response.status(400).json({
       status: 'Error',
       message: 'Please enter your email'
     });
   }
 
   if (!password || password.trim().length < 6) {
-    return res.status(400).json({
+    return response.status(400).json({
       status: 'Error',
       message: 'Password must be at least 6 characters long'
     });
@@ -75,23 +73,30 @@ export const validateSignin = (req, res, next) => {
   next();
 };
 
-export const verifyToken = (req, res, next) => {
+/**
+ * Verify Token
+ * @param {object} request 
+ * @param {object} response
+ * @param {object} next
+ * @returns {object} response object 
+ */
+export const verifyToken = (request, response, next) => {
   const {
     token
-  } = req.headers;
+  } = request.headers;
   if (token) {
     jwt.verify(token, 'secret', (err, decoded) => {
       if (err) {
-        return res.sendStatus(401).json({
+        return response.status(401).json({
           message: 'Authentication failed'
         });
       }
-      req.decoded = decoded;
-      console.log(req.decoded);
+      request.decoded = decoded;
+      console.log(request.decoded);
       next();
     });
   } else {
-    res.status(401).json({
+    response.status(401).json({
       message: 'Unauthorized'
     });
   }

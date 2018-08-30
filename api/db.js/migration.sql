@@ -1,0 +1,27 @@
+DROP TABLE questions;
+DROP TABLE answers;
+DROP TABLE users;
+
+CREATE TABLE users(
+  id serial PRIMARY KEY,
+  email VARCHAR UNIQUE NOT NULL,
+  username VARCHAR UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE questions(
+  id serial PRIMARY KEY,
+  title TEXT NOT NULL,
+  question TEXT NOT NULL,
+  user_id INTEGER NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);
+CREATE TABLE answers(
+  id serial PRIMARY KEY,
+  question_id INTEGER NOT NULL,
+  answer TEXT NOT NULL,
+  user_id INTEGER NOT NULL,
+  preferred_answer BOOLEAN NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);

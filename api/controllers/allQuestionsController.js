@@ -1,81 +1,81 @@
 import questions from '../models/questions';
 
-export const allQuestionsGet = (req, res) => {
-  if (!questions) return res.status(404).send('No question was found');
-  return res.json(questions);
+export const allQuestionsGet = (request, response) => {
+  if (!questions) return response.status(404).send('No question was found');
+  return response.json(questions);
 };
 
-export const questionIdGet = (req, res) => {
-  const data = questions.questions.find(item => item.questionId === parseInt(req.params.id));
-  if (!data) return res.status(404).send('The question with the given ID was not found');
-  return res.json(data);
+export const questionIdGet = (request, response) => {
+  const data = questions.questions.find(item => item.questionId === parseInt(request.params.id));
+  if (!data) return response.status(404).send('The question with the given ID was not found');
+  return response.json(data);
 };
 
-export const questionPost = (req, res) => {
+export const questionPost = (request, response) => {
   try {
     const addQuestion = {
       questionId: questions.questions.length + 1,
-      question: req.body.question,
+      question: request.body.question,
       createdDate: Date.now()
     };
     questions.questions.push(addQuestion);
 
-    return res.send({
+    return response.send({
       message: 'Question added successfully',
       data: addQuestion
     });
   } catch (error) {
-    return res.send(error);
+    return response.send(error);
   }
 };
 
-export const answerPost = (req, res) => {
+export const answerPost = (request, response) => {
   try {
-    const itemId = questions.questions.find(item => item.questionId === parseInt(req.params.id));
+    const itemId = questions.questions.find(item => item.questionId === parseInt(request.params.id));
     const {
       answers
     } = itemId;
     const newAnswer = {
       answerId: answers.length + 1,
-      answer: req.body.answer
+      answer: request.body.answer
     };
     answers.push(newAnswer);
-    return res.send({
+    return response.send({
       message: 'Answer successfully Created',
       data: newAnswer
     });
   } catch (e) {
-    return res.send(e);
+    return response.send(e);
   }
 };
 
-export const updateQuestion = (req, res) => {
-  const updateData = questions.questions.find(item => item.questionId === parseInt(req.params.id));
-  if (!updateData) return res.status(404).send('The question with the given ID was not found');
+export const updateQuestion = (request, response) => {
+  const updateData = questions.questions.find(item => item.questionId === parseInt(request.params.id));
+  if (!updateData) return response.status(404).send('The question with the given ID was not found');
   try {
     const id = questions.questions.indexOf(updateData);
-    updateData.question = req.body.question;
+    updateData.question = request.body.question;
     questions.questions[id] = updateData;
-    return res.send({
+    return response.send({
       message: 'Question has been updated successfully',
       updateData
     });
   } catch (error) {
-    return res.send(error);
+    return response.send(error);
   }
 };
 
-export const deleteQuestion = (req, res) => {
+export const deleteQuestion = (request, response) => {
   try {
-    const deleteData = questions.questions.find(item => item.questionId === parseInt(req.params.id));
-    if (!deleteData) return res.status(404).send('The question with the given ID was not found');
+    const deleteData = questions.questions.find(item => item.questionId === parseInt(request.params.id));
+    if (!deleteData) return response.status(404).send('The question with the given ID was not found');
     const index = questions.questions.indexOf(deleteData);
     questions.questions.splice(index, 1);
-    return res.send({
+    return response.send({
       message: 'Question has been deleted',
       deleteData
     });
   } catch (error) {
-    return res.send(error);
+    return response.send(error);
   }
 };

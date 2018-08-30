@@ -14,12 +14,13 @@
   "scripts": {
     "mocha": "mocha --compilers js:babel-register",
     "babel-node": "babel-node --presets=env",
-    "start:dev": "nodemon --exec npm run babel-node -- server.js",
-    "start": "nodemon --exec npm run babel-node -- server.js",
+    "start:dev": "nodemon --exec npm run babel-node -- api/server.js",
+    "start": "nodemon --exec npm run babel-node -- api/server.js",
     "build": "babel ./ -d dist",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "coverage": "nyc reports --reporter=text-lcov | coveralls",
-    "test": "nyc --reporter=text mocha --compilers js:babel-register ./test/*.js --exit --reporter spec"
+    "test": "npm run init_db && nyc --reporter=text mocha  --timeout 100000 --compilers js:babel-register ./api/test/*.js --exit --reporter spec",
+    "init_db": "psql -f api/db.js/migration.sql postgres://fhwvjmgdooedgs:45f091bb74c50cf4f80c6ed023d6f8e22f8c7e5f6af4a8b106eb33ee6d8bcd4d@ec2-54-225-92-1.compute-1.amazonaws.com:5432/d6m9i7p1j93o8u?ssl=true"
   },
   "repository": {
     "type": "git",
