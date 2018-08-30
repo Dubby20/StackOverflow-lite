@@ -3,8 +3,6 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import createError from 'http-errors';
 
-// require('dotenv').config()
-
 
 import router from './routes/routes';
 
@@ -17,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-app.get('/', (req, res) => res.json({
+app.get('/', (request, response) => response.json({
   message: 'Welcome to Kodeland Forum'
 }));
 
@@ -25,19 +23,8 @@ app.use('/api/v1', router);
 
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
+app.use((request, response, next) => {
   next(createError(404));
-});
-
-// error handler
-app.use((err, req, res) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
 });
 
 app.listen(port, () => {

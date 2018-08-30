@@ -3,18 +3,24 @@ import jwt from 'jsonwebtoken';
 import pool from '../config/database';
 
 
-export const signup = (req, res) => {
+export const signup = (request, response) => {
   try {
-    bcrypt.hash(req.body.password, 6, (err, hash) => {
-      if (err) {
-        return err;
+    /**
+     * Hash Password Method
+     * @param {string} password
+     * @returns {string} returns hashed password
+     */
+    bcrypt.hash(request.body.password, 1, (error, hash) => {
+      if (error) {
+        return error;
       }
       pool.query(
-        'INSERT INTO users (email, fullname, username, password) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.email, req.body.fullname, req.body.username, hash],
+        'INSERT INTO users (email, username, password) VALUES ($1, $2, $3) RETURNING *',
+        [request.body.email, request.body.username, hash],
         (error, result) => {
           if (error) {
-            return res.status(400).json({
-              status: res.statusCode,
+            return response.status(400).json({
+              status: 'Error',
               message: error.detail
             });
           }
@@ -22,6 +28,12 @@ export const signup = (req, res) => {
             email,
             id
           } = result.rows[0];
+          /**
+           * Gnerate Token
+           * @param {string} id 
+           * @param {string} email 
+           * @returns {string} token
+           */
           if (result) {
             const token = jwt.sign({
                 id,
@@ -30,76 +42,102 @@ export const signup = (req, res) => {
               'secret', {
                 expiresIn: '24h'
               });
-            res.status(201).json({
+            response.status(201).json({
               token,
+              data: result.rows[0],
               status: 'Success',
               message: 'User created successfully'
             });
           } else {
-            return res.status(404).json({
+            return response.status(404).json({
               status: 'Error',
-              message: 'Invalid details'
+              message: `Invalid details. Email or password is incorrect ${error}`
             });
           }
         }
 
       );
     });
-  } catch (err) {
-    res.status(400).json({
+  } catch (error) {
+    response.status(400).json({
       status: 'Error',
-      message: err.err[0].message
+      message: error.error[0].message
     });
   }
 };
 
 
-export const signin = (req, res) => {
+/**
+ * Sign in
+ * @param {object} request 
+ * @param {object} response
+ * @returns {object} user object 
+ */
+export const signin = (request, response) => {
   try {
-    pool.query('SELECT * FROM users WHERE email = $1', [req.body.email], (err, result) => {
-      if (err) {
-        return res.status(400).json({
-          status: 'Error',
-          message: err.detail
-        });
-      }
-      const {
-        email,
-        id,
-        password
-      } = result.rows[0];
-      bcrypt.compare(req.body.password, password, (err, result) => {
-        if (err) {
-          return res.status(400).json({
-            status: 'Error',
-            message: 'Invalid login details. Email or password is incorrect'
+    pool.query('SELECT * FROM users WHERE email = $1',
+      [request.body.email], (error, result) => {
+        console.log(request.body);
+        if (error) {
+          console.log(error);
+          return response.status(400).json({
+            status: 'Error333333',
+            message: error
           });
         }
-        if (result) {
-          const token = jwt.sign({
-              email,
-              id
-            },
-            'secret', {
-              expiresIn: '24h'
+        const {
+          email,
+          id,
+          password
+        } = result.rows[0];
+        console.log(result[0]);
+        /**
+         * comparePassword
+         * @param {string} hashPassword 
+         * @param {string} password 
+         * @returns {Boolean} return True or False
+         */
+        bcrypt.compare(request.body.password, password, (err, res) => {
+          if (err) {
+            console.log(error);
+            return response.status(400).json({
+              status: 'Error------',
+              message: `Invalid login details. Email or password is incorrect ${error}`
             });
-          res.status(200).json({
-            status: 'Success',
-            message: 'Successfully Signed in',
-            token
-          });
-        } else {
-          return res.status(404).json({
-            status: 'Error',
-            message: 'Invalid login details. Email or password is incorrect'
-          });
-        }
+          }
+          /**
+           * Gnerate Token
+           * @param {string} id 
+           * @param {string} email   * 
+           * @returns {string} token
+           */
+          if (res) {
+            const token = jwt.sign({
+                email,
+                id
+              },
+              'secret', {
+                expiresIn: '24h'
+              });
+            response.status(200).json({
+              status: 'Success',
+              message: 'Successfully signed in',
+              token,
+              data: result.rows[0]
+            });
+          } else {
+            return response.status(404).json({
+              status: 'Error11111',
+              message: 'Invalid login details. Email or password is incorrect'
+            });
+          }
+        });
       });
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'Error',
-      message: err.err[0].message
+  } catch (error) {
+    console.log(error);
+    response.status(400).json({
+      status: 'Error22222',
+      message: error.error[0].message
     });
   }
 };

@@ -9,7 +9,7 @@ import {
   allQuestions,
   getQuestionId,
   deleteQuestionId,
-  postAnswer,
+  addAnswer,
   preferAnswer
 } from '../controllers/index';
 
@@ -35,7 +35,7 @@ router.post('/questions', verifyToken, validateQuestion, addQuestion);
 router.get('/questions', allQuestions);
 router.get('/questions/:id', getQuestionId);
 router.delete('/questions/:id', verifyToken, deleteQuestionId);
-router.post('/questions/:id/answers', verifyToken, checkQuestion, validateAnswer, postAnswer);
+router.post('/questions/:id/answers', verifyToken, checkQuestion, validateAnswer, addAnswer);
 router.put('/questions/:id/answers/:id', verifyToken, preferAnswer);
 
 
