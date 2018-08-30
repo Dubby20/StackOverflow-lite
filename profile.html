@@ -7,20 +7,66 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Profile</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Merienda" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+  <header class="top-bar">
+    <div class="top-container">
+      <div class="main">
+        <a href="index.html" class="brand_name">Kodeland</a>
+      </div>
+      <form action="" method="GET" id="search" class="search-bar">
+        <div class="search-div">
+          <input type="text" placeholder="Search.." class="search-input" name="search" maxlength="240">
+          <!-- <button type="submit" class="search-btn">
+                <i class="fa fa-search"></i>
+              </button> -->
+        </div>
+      </form>
+      <ol class="btn">
+        <li class="btn-link">
+          <!-- <a href="profile.html" class="profile">Profile</a> -->
+          <a href="" class="login-signup">Log out</a>
+        </li>
+      </ol>
+    </div>
+  </header>
+  <div id="profile-container">
+      <div class="form animated flipInX">
+          <h1 class="login-title">My Profile</h1>
+              <form class="loginbox" autocomplete="off" action="" method="POST">
+                  <div class="">
+                  <input type="text" placeholder="Name: Jacinta NNadi" required class="input-login" name="fullname">
+                  </div>
+                  <div class="">
+              <input type="text" placeholder="Username: Dubby" required class="input-login" name="username">
+              </div>
+                  <div class="">
+              <input type="email" placeholder="Email Address: rosedubby@gmail.com" required class="input-login" name="email">
+                  </div>                 
+              
+            <img src="Mypix.jpg" class ="my-image" alt="">
+          </form>
+   </div>
+   </div>
   <footer>
     <div class="footer-container">
       <div>&copy; 2018 StackOverflow-lite</div>
       <div>Designed by Jacinta</div>
-      <div>
+      <div class="icons">
         <a href="">
-          <i class="fab fa-facebook fa-2x fa_btn"></i>
+          <i class="fab fa-twitter fa-2x fa_btn"></i>
         </a>
         <a href="">
           <i class="fab fa-github fa-2x fa_btn"></i>
+        </a>
+        <a href="">
+          <i class="fab fa-linkedin-in fa-2x fa_btn"></i>
         </a>
       </div>
     </div>

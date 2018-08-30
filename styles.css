@@ -11,17 +11,17 @@ body {
 }
 
 /* Mobile Styles */
-
-@media only screen and (min-width: 320px) and (max-width: 665px) {
-	.menu-container {
-		display: flex;
-	}
-	.btn_delete {
-		margin: 8px 0;
+@media only screen and (max-width: 320px) {
+	textarea {
+		width: 50px;
 	}
 }
 
-@media screen and (max-width: 665px) {}
+@media screen and (max-width: 980px) {
+	.top-bar .searchbar input[type="text"].f-input {
+		font-size: 12px;
+	}
+}
 
 @media screen and (max-width: 1090px) {
 	.top-bar .top-container {
@@ -36,7 +36,6 @@ body {
 }
 
 /* Desktop Styles */
-
 @media only screen and (max-width: 980px) {
 	.top-bar .search-bar input[type="text"].search-input {
 		font-size: 12px;
@@ -85,11 +84,12 @@ body {
 }
 
 .container {
-	position: relative;
+	/* position: relative; */
 	margin-left: auto;
 	margin-right: auto;
 	padding-right: 15px;
 	padding-left: 15px;
+	padding-bottom: 100px;
 }
 
 @media (min-width: 576px) {
@@ -293,7 +293,7 @@ form.search-form::after {
 }
 
 #login-container .form {
-	width: 400px;
+	width: 550px;
 	margin: 0 auto;
 	padding: 30px;
 	border: 1px solid #e4e6e8;
@@ -305,7 +305,7 @@ form.search-form::after {
 
 #signup-container .form {
 	text-align: center;
-	width: 400px;
+	width: 550px;
 	margin: 0 auto;
 	margin-top: 20vh;
 	padding: 30px;
@@ -318,6 +318,10 @@ form.search-form::after {
 
 #addQuestion-container {
 	padding: 40px;
+}
+
+.login {
+	margin: 8px;
 }
 
 .main-container {
@@ -600,9 +604,7 @@ a {
 }
 
 /* SIGNUP FORM STYLES*/
-
 /* ADDPOST PAGE STYLES*/
-
 .addPost_title {
 	text-align: center;
 	margin-bottom: 20px;
@@ -611,7 +613,6 @@ a {
 }
 
 /* FEATURED POSTS STYLES */
-
 .posts {
 	display: flex;
 	align-items: center;
@@ -648,9 +649,8 @@ hr {
 }
 
 /* VIEW POST PAGE STYLES*/
-
 pre {
-	background-color: #eaeaea;
+	/* background-color: #eaeaea; */
 	white-space: pre-line;
 }
 
@@ -659,14 +659,13 @@ pre {
 }
 
 /* FEATURED POSTS STYLES */
-
 .featured_container {
 	padding-left: 10px;
 	height: 544px;
 }
 
 .footer-container {
-	position: relative;
+	position: fixed;
 	bottom: 0;
 	width: 100%;
 	/* height: 60px; */
@@ -675,7 +674,7 @@ pre {
 	color: #fff;
 }
 
-.footer-container>div {
+.footer-container > div {
 	margin: 10px;
 	text-align: center;
 	font-size: 16px;
@@ -697,7 +696,6 @@ pre {
 }
 
 /* ---login page styles --- */
-
 body.login-body {
 	font-family: "Roboto";
 	-webkit-font-smoothing: antialiased;
@@ -751,4 +749,56 @@ button.login-btn {
 
 span.forgot {
 	float: right;
+}
+
+.profile {
+	color: #fff;
+	padding: 16px;
+	font-size: 16px;
+}
+
+.post {
+	border: 1px solid skyblue;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 30px;
+	width: 75%;
+}
+
+.title {
+	margin-top: 70px;
+}
+
+.postDiv {
+	margin-left: 20px;
+	margin-bottom: 150px;
+}
+
+#profile-container {
+	text-align: center;
+	width: 550px;
+	margin: 0 auto;
+	margin-top: 20vh;
+	padding: 30px;
+	border: 1px solid #e4e6e8;
+	border-radius: 6px;
+	background: #fff;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+	margin-bottom: 100px;
+}
+
+.my-image {
+	border-radius: 55%;
+}
+
+.answer-btn {
+	cursor: pointer;
+	background: #07c;
+	padding: 12px 40px;
+	border: 0;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 4px;
+	width: 12rem;
+	margin-top: 20px;
 }
