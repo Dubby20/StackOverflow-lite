@@ -77,12 +77,10 @@ export const signin = (request, response) => {
   try {
     pool.query('SELECT * FROM users WHERE email = $1',
       [request.body.email], (error, result) => {
-        console.log(request.body);
         if (error) {
-          console.log(error);
           return response.status(400).json({
-            status: 'Error333333',
-            message: error
+            status: 'Error',
+            message: error.message
           });
         }
         const {
@@ -90,7 +88,6 @@ export const signin = (request, response) => {
           id,
           password
         } = result.rows[0];
-        console.log(result[0]);
         /**
          * comparePassword
          * @param {string} hashPassword 
@@ -101,7 +98,7 @@ export const signin = (request, response) => {
           if (err) {
             console.log(error);
             return response.status(400).json({
-              status: 'Error------',
+              status: 'Error',
               message: `Invalid login details. Email or password is incorrect ${error}`
             });
           }
@@ -127,16 +124,15 @@ export const signin = (request, response) => {
             });
           } else {
             return response.status(404).json({
-              status: 'Error11111',
+              status: 'Error',
               message: 'Invalid login details. Email or password is incorrect'
             });
           }
         });
       });
   } catch (error) {
-    console.log(error);
     response.status(400).json({
-      status: 'Error22222',
+      status: 'Error',
       message: error.error[0].message
     });
   }

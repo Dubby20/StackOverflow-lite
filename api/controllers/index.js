@@ -145,7 +145,6 @@ export const addAnswer = (request, response) => {
         data: data.rows[0],
         message: 'Answer posted successfully'
       });
-
     }).catch((error) => {
       response.status(500).json({
         message: `error ${error}`
