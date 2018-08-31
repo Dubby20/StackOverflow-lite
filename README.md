@@ -24,16 +24,14 @@ If a user has some questions about a bug or tool he/she is using, he/she can pos
 ## Documentation
 
 List of endpoints exposed by the service
-| **http verbs** |  **ApI endpoints**           | **Functionality**
-| ---------------|:----------------------------:| ----------------------------: |
-| POST           | api/v1/auth/signup           | Registers a user              |
-| POST           | api/v1/auth/signin           | Logs in a user                |
-| POST           | api/v1/questions             | Post a question               |
-| GET            | api/v1/question/:id          | Get a question id             |
-| GET            | api/v1/questions             | Get all questions             |
-| POST           | api/v1/questions:id/answers  | Add an answer to a specific id|
-| DELETE         | api/v1/questions:id          | Deletes a specific question id|
-| PUT            | api/v1/questions:id/answer:id| Updates or prefers an answer  |
++ api/v1/auth/signup  `Registers a user `
++ api/v1/auth/signin   `Logs in a user`
++ api/v1/questions     `Post a question`
++ api/v1/question/:id   `Get a question id`
++ api/v1/questions       `Get all questions`             |
++ api/v1/questions:id/answers  `Add an answer to a specific id`
++ api/v1/questions:id         `Deletes a specific question id`
++ api/v1/questions:id/answer:id `Updates or prefers an answer`
 
 
 ## Setup
