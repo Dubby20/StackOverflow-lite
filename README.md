@@ -4,7 +4,10 @@
 
 
 # StackOverflow-lite
-StackOverflow-lite is a platform where people can ask questions and provide answers.
+StackOverflow-lite is a platform where people can ask questions about the things they are finding difficult to do and users can provide answers to those questions. It is open for everyone
+
++ Hosted Git hub Page [Kodeland](https://dubby20.github.io/StackOverflow-lite/index.html)
++ [Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/2189588)
 
 ## Description
 If a user has some questions about a bug or tool he/she is using, he/she can post it on  [Kodeland](https://dubby20.github.io/StackOverflow-lite/) and get answers or feedback from other others who visits the platform.
@@ -20,8 +23,18 @@ If a user has some questions about a bug or tool he/she is using, he/she can pos
 
 ## Documentation
 
-<!-- List of endpoints exposed by the service -->
-- 
+List of endpoints exposed by the service
+| **http verbs** |  **ApI endpoints**           | **Functionality**
+| ---------------|:----------------------------:| ----------------------------: |
+| POST           | api/v1/auth/signup           | Registers a user              |
+| POST           | api/v1/auth/signin           | Logs in a user                |
+| POST           | api/v1/questions             | Post a question               |
+| GET            | api/v1/question/:id          | Get a question id             |
+| GET            | api/v1/questions             | Get all questions             |
+| POST           | api/v1/questions:id/answers  | Add an answer to a specific id|
+| DELETE         | api/v1/questions:id          | Deletes a specific question id|
+| PUT            | api/v1/questions:id/answer:id| Updates or prefers an answer  |
+
 
 ## Setup
 
@@ -47,15 +60,20 @@ List of libraries, tools, etc used for this project
 * [Express](https://expressjs.com/)
 * [Postgresql](https://www.postgresql.org/)
 
-### Getting Started
+
+<!-- ### Getting Started -->
+
+## Demo
+A fully functional demo of this project is available at [Kodedland](https://kodedland.herokuapp.com/)
 
 <!-- List of steps to get started (e.g. clone repo, submodule, .env file, etc) -->
 
 ### Run The Service
 
 <!-- List of steps to run the service (e.g. docker commands) -->
+[Postman](www.getpostman.com)
 
-### Microservices
+<!-- ### Microservices -->
 
 <!-- List out the microservices if any that this repo uses -->
 
@@ -65,11 +83,11 @@ List of libraries, tools, etc used for this project
 `npm run test` 
 
 
-## Contribute
+<!-- ## Contribute -->
 
 <!-- Any instructions needed to help others contribute to this repository -->
 
-## Deployment
+<!-- ## Deployment -->
 
 <!-- Step by step instructions so that the developer can understand how code gets updated -->
 

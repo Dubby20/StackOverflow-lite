@@ -15,6 +15,12 @@ export const allQuestions = (request, response) => {
         });
       } else {
         const data = result.rows;
+
+        if (data.length === 0) {
+          return response.status(200).json({
+            messsage: 'There is no question yet'
+          });
+        }
         return response.status(200).json({
           data,
           message: 'Successful'
@@ -70,13 +76,13 @@ export const getQuestionId = (request, response) => {
     pool.query('SELECT * FROM questions WHERE id = $1',
       [request.params.id], (error, result) => {
         if (error) {
-          response.status(404).json({
+          return response.status(404).json({
             status: 'Error',
-            message: error
+            message: 'Question id not found'
           });
         } else {
           const data = result.rows;
-          return response.status(200).json({
+          response.status(200).json({
             data,
             message: 'Successful'
           });
@@ -99,8 +105,8 @@ export const deleteQuestionId = (request, response) => {
     pool.query('SELECT * FROM questions WHERE questions.id = $1',
       [request.params.id], (error, result) => {
         if (error) {
-          response.status(400).json({
-            message: error
+          return response.status(400).json({
+            message: 'Question does not exist'
           });
         }
         if (request.decoded.id === result.rows[0].user_id) {

@@ -27,8 +27,6 @@ import validateAnswer from '../middleware/validateAnswer';
 
 const router = express.Router();
 
-// router.put('/questions/:id', updateQuestion);
-
 router.post('/auth/signup', validateSignup, signup);
 router.post('/auth/signin', validateSignin, signin);
 router.post('/questions', verifyToken, validateQuestion, addQuestion);
